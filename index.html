@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exoplanet Interactive Slideshow</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="scene-1" class="slide active">
+    <h2>What are exoplanets?</h2>
+    <p>Exoplanets are planets that orbit stars outside our solar system. Thousands have been discovered using methods like the transit method, where a planet passes in front of its star, dimming the light we see. These planets vary widely in size, composition, and temperature. Furthermore some resemble Earth, while others are gas giants like Neptune. Studying exoplanets helps scientists understand planetary formation and the potential for life beyond Earth. Missions like Kepler and TESS have significantly advanced our knowledge of these distant worlds.</p>
+    <div id="scene1-images" class="chart"></div>
+    <button class="btn-next">Next</button>
+  </div>
+
+  <div id="scene-2" class="slide">
+    <h2>Types of Planets</h2>
+    <p>Explore how different types of planets have been discovered over time and by different detection methods. Click a bar to see details. Use the controls below to filter by year and detection method.</p>
+    
+    <div class="filter-group checkbox-group">
+      <label>Discovery Year: <input type="range" id="scene2-year-range" min="1990" max="2025" value="2025"></label>
+      <span id="scene2-year-display">2025</span>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Detection Methods:</strong><br>
+      <label><input type="checkbox" value="Transit" checked> Transit</label>
+      <label><input type="checkbox" value="Radial Velocity" checked> Radial Velocity</label>
+      <label><input type="checkbox" value="Direct Imaging" checked> Direct Imaging</label>
+      <label><input type="checkbox" value="Gravitational Microlensing" checked> Gravitational Microlensing</label>
+      <label><input type="checkbox" value="Eclipse Timing Variations" checked> Eclipse Timing Variations</label>
+      <label><input type="checkbox" value="Astrometry" checked> Astrometry</label>
+    </div>
+    
+    <div class="chart-container">
+      <div id="scene2-chart" class="chart"></div>
+      <div id="scene2-info" class="info-panel">Most discovered exoplanets are Gas Giants, Neptune-like, or Super Earths, while terrestrialplanets remain rare due to detection challenges.</div>
+    </div>
+    <button class="btn-prev">Previous</button>
+    <button class="btn-next">Next</button>
+  </div>
+
+  <div id="scene-3" class="slide">
+    <h2>Discovery Timeline</h2>
+    <p>Explore how planet discoveries have changed over time by filtering by planet type and detection method. Use the filters below to explore discovery trends over time.</p>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Planet Types:</strong><br>
+      <label><input type="checkbox" value="Gas Giant" checked> Gas Giant</label>
+      <label><input type="checkbox" value="Super Earth" checked> Super Earth</label>
+      <label><input type="checkbox" value="Neptune-like" checked> Neptune-like</label>
+      <label><input type="checkbox" value="Terrestrial" checked> Terrestrial</label>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Detection Methods:</strong><br>
+      <label><input type="checkbox" value="Transit" checked> Transit</label>
+      <label><input type="checkbox" value="Radial Velocity" checked> Radial Velocity</label>
+      <label><input type="checkbox" value="Direct Imaging" checked> Direct Imaging</label>
+      <label><input type="checkbox" value="Gravitational Microlensing" checked> Gravitational Microlensing</label>
+      <label><input type="checkbox" value="Eclipse Timing Variations" checked> Eclipse Timing Variations</label>
+      <label><input type="checkbox" value="Astrometry" checked> Astrometry</label>
+    </div>
+    
+    <div class="chart-container">
+      <div id="scene3-chart" class="chart"></div>
+      <div id="scene3-info" class="info-panel">Exoplanet discoveries surged after 2009 with NASA's Kepler mission, highlighting the impact of advanced space telescopes on detection rates.</div>
+    </div>
+    <button class="btn-prev">Previous</button>
+    <button class="btn-next">Next</button>
+  </div>
+
+  <div id="scene-4" class="slide">
+    <h2>Orbit and Mass Exploration</h2>
+    <p>Let's explore how planets differ in size and orbit. Use the filters below to explore different planet types and detection methods. Hover over points to see planet details.</p>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Planet Types:</strong><br>
+      <label><input type="checkbox" value="Gas Giant" checked> Gas Giant</label>
+      <label><input type="checkbox" value="Super Earth" checked> Super Earth</label>
+      <label><input type="checkbox" value="Neptune-like" checked> Neptune-like</label>
+      <label><input type="checkbox" value="Terrestrial" checked> Terrestrial</label>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Discovery Year:</strong><br>
+      <label>Up to year: <input type="range" id="year-range" min="1990" max="2025" value="2025"></label>
+      <span id="scene4-year-display">2025</span>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Detection Methods:</strong><br>
+      <label><input type="checkbox" value="Transit" checked> Transit</label>
+      <label><input type="checkbox" value="Radial Velocity" checked> Radial Velocity</label>
+      <label><input type="checkbox" value="Direct Imaging" checked> Direct Imaging</label>
+      <label><input type="checkbox" value="Gravitational Microlensing" checked> Gravitational Microlensing</label>
+      <label><input type="checkbox" value="Eclipse Timing Variations" checked> Eclipse Timing Variations</label>
+      <label><input type="checkbox" value="Astrometry" checked> Astrometry</label>
+    </div>
+    
+    <div class="chart-container">
+      <div id="scene4-chart" class="chart"></div>
+      <div id="scene4-info" class="info-panel"> The sparse distribution at larger orbital distances highlights the increasing difficulty of detecting planets further from their stars. Most discoveries are within 50 AU of their host stars.</div>
+    </div>
+    <button class="btn-prev">Previous</button>
+    <button class="btn-next">Next</button>
+  </div>
+
+  <div id="scene-5" class="slide">
+    <h2>Distance vs Stellar Magnitude</h2>
+    <p>Explore the relationship between how far away planets are and the brightness of their host stars. Hover over points to see planet details.  Use the range sliders below to zoom into specific areas. </p>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Planet Types:</strong><br>
+      <label><input type="checkbox" value="Gas Giant" checked> Gas Giant</label>
+      <label><input type="checkbox" value="Super Earth" checked> Super Earth</label>
+      <label><input type="checkbox" value="Neptune-like" checked> Neptune-like</label>
+      <label><input type="checkbox" value="Terrestrial" checked> Terrestrial</label>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Discovery Year:</strong><br>
+      <label>Up to year: <input type="range" id="scene5-year-range" min="1990" max="2025" value="2025"></label>
+      <span id="scene5-year-display">2025</span>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Detection Methods:</strong><br>
+      <label><input type="checkbox" value="Transit" checked> Transit</label>
+      <label><input type="checkbox" value="Radial Velocity" checked> Radial Velocity</label>
+      <label><input type="checkbox" value="Direct Imaging" checked> Direct Imaging</label>
+      <label><input type="checkbox" value="Gravitational Microlensing" checked> Gravitational Microlensing</label>
+      <label><input type="checkbox" value="Eclipse Timing Variations" checked> Eclipse Timing Variations</label>
+      <label><input type="checkbox" value="Astrometry" checked> Astrometry</label>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Distance Range (parsecs):</strong><br>
+      <label>Min: <input type="range" id="scene5-distance-min" min="0" max="2800" value="0"></label>
+      <span id="scene5-distance-min-display">0</span>
+      <label>Max: <input type="range" id="scene5-distance-max" min="0" max="2800" value="2800"></label>
+      <span id="scene5-distance-max-display">2800</span>
+    </div>
+    
+    <div class="filter-group checkbox-group">
+      <strong>Stellar Magnitude Range:</strong><br>
+      <label>Min: <input type="range" id="scene5-magnitude-min" min="0" max="45" value="0"></label>
+      <span id="scene5-magnitude-min-display">-5</span>
+      <label>Max: <input type="range" id="scene5-magnitude-max" min="0" max="45" value="45"></label>
+      <span id="scene5-magnitude-max-display">45</span>
+    </div>
+    
+    <div class="chart-container">
+      <div id="scene5-chart" class="chart"></div>
+      <div id="scene5-info" class="info-panel">Lower stellar magnitude means brighter stars.</div>
+    </div>
+    <button class="btn-prev">Previous</button>
+    <button class="btn-next">Restart</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
